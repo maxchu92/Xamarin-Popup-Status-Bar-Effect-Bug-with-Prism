@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:prism="http://prismlibrary.com"
+			 xmlns:vm="clr-namespace:BugTest2.ViewModels"
+			 prism:ViewModelLocator.AutowireViewModel="True"
+			 Title="{Binding Title}"
+			 x:DataType="vm:ContentTestPageViewModel"
+			 x:Class="BugTest2.Views.ContentTestPage">
+	<StackLayout VerticalOptions="CenterAndExpand" Padding="16">
+		<Label Text="test" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+		<Button Text="Open content page" Command="{prism:NavigateTo ContentTestPage}" />
+		<Button Text="Open popup" Command="{prism:NavigateTo PopupTestPage}" />
+		<Button Text="Back" Command="{prism:GoBack}" />
+		<!--<Button Text="Back to Root using XAML" Command="{prism:GoBack ToRoot}" />-->
+		<Button Text="Back to Root using Command" Command="{Binding BackToRootCommand}" />
+	</StackLayout>
+</ContentPage>
